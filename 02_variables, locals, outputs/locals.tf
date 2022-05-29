@@ -1,9 +1,9 @@
 locals {
-# create locals for tags 
+  # create locals for tags 
   tags = {
-    creator       = "mustafa emal"
-    purpose       = "test terraform with Azure"
-    env = "dev"
+    creator = "mustafa emal"
+    purpose = "test terraform with Azure"
+    env     = "dev"
   }
 
   storage_name = "stgacc${random_integer.random.result}"

@@ -22,24 +22,6 @@ variable "storage_replication_type" {
   type = string
 }
 
-variable "vnet_name" {
+variable "container_name" {
   type = string
-}
-
-variable "vnet_space" {
-  type      = list(string)
-  sensitive = true
-}
-
-variable "subnet_name" {
-  type = string
-}
-
-variable "subnet_prefix" {
-  type = list(string)
-}
-
-variable "nsg_name" {
-  type        = string
-  description = "Network Security Group Name"
 }

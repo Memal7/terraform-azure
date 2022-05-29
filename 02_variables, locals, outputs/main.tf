@@ -29,7 +29,7 @@ resource "azurerm_storage_account" "storage" {
 
 # create a virtual network
 resource "azurerm_virtual_network" "vnet" {
-  depends_on = [azurerm_resource_group.rg]
+  depends_on          = [azurerm_resource_group.rg]
   name                = var.vnet_name
   resource_group_name = var.resource_group
   location            = var.location
@@ -38,7 +38,7 @@ resource "azurerm_virtual_network" "vnet" {
 
 # create a subnet
 resource "azurerm_subnet" "subnet" {
-  depends_on = [azurerm_virtual_network.vnet]
+  depends_on           = [azurerm_virtual_network.vnet]
   name                 = var.subnet_name
   resource_group_name  = var.resource_group
   virtual_network_name = azurerm_virtual_network.vnet.name
