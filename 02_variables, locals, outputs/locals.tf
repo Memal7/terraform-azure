@@ -1,4 +1,5 @@
 locals {
+# create locals for tags 
   tags = {
     creator       = "mustafa emal"
     purpose       = "test terraform with Azure"
