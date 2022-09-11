@@ -1,4 +1,4 @@
-resource_group = "rg-test-terraform"
+resource_group = "rg-terraform"
 
 location = "westeurope"
 
