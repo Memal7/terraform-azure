@@ -1,9 +1,9 @@
-# Configure the Azure provider
+# configure the Azure provider
 terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 2.65"
+      version = "~> 3.0"
     }
   }
 }
@@ -12,13 +12,13 @@ provider "azurerm" {
   features {}
 }
 
-# Create a resource group
+# create a resource group
 resource "azurerm_resource_group" "test" {
-  name     = "rg-acctest"
-  location = "westeurope"
+  name     = "rg-iac-terraform"
+  location = "nordeurope"
 }
 
-# Create a storage account
+# create a storage account
 resource "azurerm_storage_account" "test" {
   name                     = "stgaccacctest001"
   resource_group_name      = azurerm_resource_group.test.name
