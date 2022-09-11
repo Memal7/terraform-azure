@@ -16,6 +16,7 @@ variable "location" {
 
 variable "storage_tier" {
   type = string
+  description = "Choose the storage tier for your storage account. The default is Hot, but you have two other options as well: Cool and Archive"
 }
 
 variable "storage_replication_type" {
