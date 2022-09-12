@@ -18,54 +18,56 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-# create a storage account
-resource "azurerm_storage_account" "storage" {
-  name                     = local.storage_name
-  resource_group_name      = azurerm_resource_group.rg
-  location                 = var.location
-  account_tier             = var.storage_tier
-  account_replication_type = var.storage_replication_type
-}
+# create an aks cluster
+resource "azurerm_kubernetes_cluster" "main" {
+  name                              = var.cluster_name
+  location                          = azurerm_resource_group.rg.location
+  resource_group_name               = azurerm_resource_group.rg.name
+  dns_prefix                        = var.dns_prefix
+  role_based_access_control_enabled = true
+  kubernetes_version                = var.orchestrator_version
+  sku_tier                          = var.cluster_sku_tier
 
-# create a virtual network
-resource "azurerm_virtual_network" "vnet" {
-  depends_on          = [azurerm_resource_group.rg]
-  name                = var.vnet_name
-  resource_group_name = var.resource_group
-  location            = var.location
-  address_space       = var.vnet_space
-}
+  azure_active_directory_role_based_access_control {
+    managed            = true
+    azure_rbac_enabled = true
+  }
 
-# create a subnet
-resource "azurerm_subnet" "subnet" {
-  depends_on           = [azurerm_virtual_network.vnet]
-  name                 = var.subnet_name
-  resource_group_name  = var.resource_group
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = var.subnet_prefix
-}
+  default_node_pool {
+    name                 = var.default_node_pool_name
+    vm_size              = var.default_node_pool_vm_size
+    enable_auto_scaling  = true
+    min_count            = var.default_node_pool_min_count
+    max_count            = var.default_node_pool_max_count
+    max_pods             = var.default_node_pool_max_pods
+    os_disk_size_gb      = var.default_node_pool_os_disk_size_gb
+    os_disk_type         = var.default_node_pool_os_disk_type
+    os_sku               = var.default_node_pool_os_sku
+    orchestrator_version = var.orchestrator_version
+    zones                = var.default_node_pool_availability_zones
 
-# create a network security group
-resource "azurerm_network_security_group" "nsg" {
-  name                = var.nsg_name
-  location            = var.location
-  resource_group_name = var.resource_group
+  }
 
-  security_rule {
-    name                       = "Open"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
+  identity {
+    type = "SystemAssigned"
   }
 }
 
-# create a network security group association
-resource "azurerm_subnet_network_security_group_association" "snet01" {
-  subnet_id                 = azurerm_subnet.subnet.id
-  network_security_group_id = azurerm_network_security_group.nsg.id
+# create an azure container registry (acr)
+resource "azurerm_container_registry" "acr" {
+  name                   = var.acr_name
+  location               = azurerm_resource_group.rg.location
+  resource_group_name    = azurerm_resource_group.rg.name
+  sku                    = var.acr_sku
+  admin_enabled          = false
+  anonymous_pull_enabled = false
+}
+
+# create a storage account
+resource "azurerm_storage_account" "storage_account" {
+  name                     = local.storage_name
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }

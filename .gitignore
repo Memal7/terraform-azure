@@ -7,3 +7,7 @@
 
 # .terraform.lock.hcl
 .terraform.lock.hcl
+
+# .tfvars
+*.tfvars
+

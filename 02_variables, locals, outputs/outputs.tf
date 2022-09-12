@@ -5,5 +5,5 @@ output "resource_group_id" {
 
 # create an output for the storage account name
 output "storage_account_name" {
-  value = azurerm_storage_account.storage.name
+  value = azurerm_storage_account.storage_account.name
 }

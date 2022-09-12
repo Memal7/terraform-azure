@@ -1,13 +1,13 @@
 locals {
   # create locals for commen tags 
   tags = {
-    creator = "mustafa emal"
-    purpose = "have fun with terraform in Azure"
-    env     = "dev"
+    creator     = "mustafa emal"
+    purpose     = "have fun with terraform in Azure"
+    env         = "dev"
     cost-center = "CSU - AppInno"
   }
 
-# create a random string for the name of the storage account
+  # create a random string for the name of the storage account
   storage_name = "stgacc${random_integer.random.result}"
 }
 
