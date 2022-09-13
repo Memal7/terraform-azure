@@ -33,40 +33,6 @@ resource "azurerm_storage_account" "storage" {
 resource "azurerm_storage_container" "container" {
   name                  = var.container_name
   storage_account_name  = azurerm_storage_account.storage.name
-  container_access_type = "private"
+  container_access_type = "blob"
 }
 
-# create sas state for storage account
-data "azurerm_storage_account_sas" "state" {
-  connection_string = azurerm_storage_account.storage.primary_connection_string
-  https_only        = true
-
-  resource_types {
-    service   = true
-    container = true
-    object    = true
-  }
-
-  services {
-    blob  = true
-    queue = false
-    table = false
-    file  = false
-  }
-
-# expiry_time for sas token
-  start  = timestamp()
-  expiry = timeadd(timestamp(), "17520h")
-
-# permissions for sas token
-  permissions {
-    read    = true
-    write   = true
-    delete  = true
-    list    = true
-    add     = true
-    create  = true
-    update  = false
-    process = false
-  }
-}

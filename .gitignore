@@ -1,13 +1,16 @@
-# .terraform folder
+# everything about terraform provider
 .terraform
 
-# .tfstate files
+# sensitive data about deployed infrastructures
 *.tfstate
 *.tfstate.*
 
 # .terraform.lock.hcl
 .terraform.lock.hcl
 
-# .tfvars
+# variables values
 *.tfvars
+
+# storage account infos
+backend-config.txt
 
