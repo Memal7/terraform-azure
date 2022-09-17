@@ -16,6 +16,8 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group
   location = var.location
+
+  tags = local.tags
 }
 
 # create a storage account
@@ -35,4 +37,3 @@ resource "azurerm_storage_container" "container" {
   storage_account_name  = azurerm_storage_account.storage.name
   container_access_type = "blob"
 }
-

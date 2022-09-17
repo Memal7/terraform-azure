@@ -14,6 +14,14 @@ variable "location" {
   }
 }
 
+variable "storage_replication_type" {
+  type = string
+}
+
+variable "storage_tier" {
+  type = string
+}
+
 variable "vnet_name" {
   type = string
 }

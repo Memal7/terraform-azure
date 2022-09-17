@@ -16,6 +16,8 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group
   location = var.location
+
+  tags = local.tags
 }
 
 # create a storage account module
@@ -25,6 +27,7 @@ module "storage" {
   storage_name   = local.storage_name
   resource_group    = azurerm_resource_group.rg.name
   location = var.location
+  https_only = true
 }
 
 # create a virtual network
@@ -34,11 +37,16 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name = var.resource_group
   location            = var.location
   address_space       = var.vnet_space
+
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy       = false
+    ignore_changes        = ["10.0.0.0/24"]
+  }
 }
 
 # create a subnet
 resource "azurerm_subnet" "subnet" {
-  depends_on           = [azurerm_virtual_network.vnet]
   name                 = var.subnet_name
   resource_group_name  = var.resource_group
   virtual_network_name = azurerm_virtual_network.vnet.name
