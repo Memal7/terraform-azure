@@ -14,4 +14,7 @@
 # storage account infos
 backend-config.txt
 
+# .DS_Store
+.DS_Store
+
 
