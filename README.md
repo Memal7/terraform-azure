@@ -21,14 +21,6 @@ Terraform allows you to write human-readable configuration codes with _Hashicorp
 
 ---
 
-## Terraform core components
-- **Executable:** A single binary file which contains all core functionality of Terraform. This is the file, that you download.
-- **Configuration files:** Contains all configurations or defined infrastructure resources. There can be 1 or more such files (with .tf extension) in a Terraform directory.
-- **Provider plugins:** Interacts with many provider services (e.g. Azure) via thier APIs.
-- **State data**: Contains informations about the current state of the deployed infrastructure resources (with .tfstate extension).
-
----
-
 ## Terraform workflow
 - **configuration files:** Define your resources 
 - **terraform init:** Initialize configuration files inside current directory and download the provider plugin from Terraform Registry 
@@ -40,7 +32,7 @@ Terraform allows you to write human-readable configuration codes with _Hashicorp
 
 ---
 
-## How to get-started?
+## Installation
 ### **Install Terraform on macOS**
 Install using package manager using following commands
 ```
@@ -85,6 +77,31 @@ az account list -o table
 Choose the right subscription:
 ```
 az account set --subscription "<your-subscription-id>"
+```
+
+---
+
+## Quick Start
+Switch to one of the folder in the root directory (e.g. cd 01_intro) and use deploy the defined resources in the `main.tf` using following commands:
+
+Initialize your working directory and install provider plugins:
+```
+terraform init
+```
+
+Create an execution plan:
+```
+terraform plan
+```
+
+Apply the pre-determined execution plan:
+```
+terraform apply
+```
+
+Destroy all resources:
+```
+terraform destroy
 ```
 
 ---
