@@ -17,15 +17,15 @@ IaC offers many benefits. Just some of them are:
 ---
 ## What's Terraform?
 Terraform is an open source IaC tool maintained by [HashiCorp](https://www.terraform.io/) for deploying cloud infrastructures and managing whole cloud-native application lifecyles through writing and executing codes in a declarative way, rather than manually.
-Terraform allows you to write human-readable configuration codes with _Hashicorp Configuration Lanaguage (HCL)_ to define your cloud infrastructures. This code can be used to deploy repeatable and consistent environments across public, private, hybrid, and community cloud providers.
+Terraform allows you to write human-readable configuration codes with *Hashicorp Configuration Lanaguage (HCL)* to define your cloud infrastructures. This code can be used to deploy repeatable and consistent environments across public, private, hybrid, and community cloud providers.
 
 ---
 
 ## Terraform workflow
 - **configuration files:** Define your resources 
-- **terraform init:** Initialize configuration files inside current directory and download the provider plugin from Terraform Registry 
-- **terraform plan:** Create an execution plan
-- **terraform apply:** Apply the planned execution
+- **`terraform init`:** Initialize configuration files inside current directory and download the provider plugins from Terraform Registry 
+- **`terraform plan`:** Create an execution plan
+- **`terraform apply`:** Apply the planned execution
 - **terrafrom.tfstate:** Terraform will store the current state of deployed resources
 
 ![Image 01: Terraform principle](./00_images/terraform-workflow.png)
