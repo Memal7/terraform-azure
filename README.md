@@ -90,7 +90,7 @@ az account set --subscription "<your-subscription-id>"
 ---
 
 ## Reference
-[Terraform Developer Doca](https://developer.hashicorp.com/terraform)
+[Terraform Developer Docs](https://developer.hashicorp.com/terraform)
 
 
 
