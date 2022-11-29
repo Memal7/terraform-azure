@@ -1,5 +1,5 @@
-# Deploy and manage your Azure infrastructures with Terraform
-This repo demonstrate the usage of Infrastructure as Code (IaC) with Terraform in Azure with some demos.
+# Deploy and manage your Azure infrastructures with Terraform  
+This repo demonstrate the usage of Infrastructure as Code (IaC) with Terraform in Azure with some demos.  
 ---
 ## What's IaC?
 IaC is the process of provisioning and managing infrastructure resources through writing and executing code, rather than using manual configuration or GUIs.
