@@ -11,17 +11,6 @@ Initialize a working directory which contains Terraform configuration files:
 terraform init
 ```
 ---
-## Plan
-Create an execution plan:
-```
-terraform plan
-```
-
-Create an execution plan in a seperated file:
-```
-terraform plan --out deployment-plan.out
-```
----
 ## Format
 Adjust the format of the configuratation files in all files:
 ```
@@ -31,6 +20,17 @@ terraform fmt -recursive
 Validate the Terraform syntax:
 ```
 terraform validate
+```
+---
+## Plan
+Create an execution plan:
+```
+terraform plan
+```
+
+Create an execution plan in a seperated file:
+```
+terraform plan --out deployment-plan.out
 ```
 ---
 ## Apply
