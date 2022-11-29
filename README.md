@@ -87,6 +87,11 @@ Choose the right subscription:
 az account set --subscription "<your-subscription-id>"
 ```
 
+---
+
+## Reference
+[Terraform Developer Doca](https://developer.hashicorp.com/terraform)
+
 
 
 
