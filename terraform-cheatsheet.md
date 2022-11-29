@@ -107,3 +107,8 @@ List all workspaces:
 ```
 terraform workspace list
 ```
+
+---
+
+## Reference
+[Terraform Developer CLI Docs](https://developer.hashicorp.com/terraform/cli)
