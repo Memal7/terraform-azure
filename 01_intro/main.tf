@@ -1,4 +1,4 @@
-# Set Azure provider source and version
+# Azure provider source and version
 terraform {
   required_providers {
     azurerm = {
