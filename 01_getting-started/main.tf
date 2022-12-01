@@ -21,7 +21,7 @@ resource "azurerm_resource_group" "rg" {
 
 # create a storage account
 resource "azurerm_storage_account" "stg" {
-  name                     = "stgaccacctest001"
+  name                     = "stgaccacctest00111"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
