@@ -86,7 +86,12 @@ Refresh the state:
 terraform refresh
 ```
 ---
-## Output
+## Inspecting infrastucture
+Generate an .svg format image from your deployed resources:
+```
+terraform graph | dot -Tsvg > graph.svg
+```
+
 Shows all outputs:
 ```
 terraform output
