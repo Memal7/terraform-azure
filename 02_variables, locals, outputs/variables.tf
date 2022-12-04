@@ -18,7 +18,7 @@ variable "location" {
 ############################# main cluster #############################
 variable "cluster_name" {
   type    = string
-  default = "aks-terraform"
+  default = "defaultaks01"
 }
 
 variable "dns_prefix" {
@@ -32,7 +32,7 @@ variable "orchestrator_version" {
 
 variable "cluster_sku_tier" {
   type = string
-  default = "paid"
+  default = "Paid"
 }
 
 
@@ -83,13 +83,17 @@ variable "default_node_pool_availability_zones" {
 }
 
 ############################ create an azure container registry (acr) #############################
-variable "acr_name" {
-  type        = string
-  description = "Azure Container Registry for storing container images"
-}
-
 variable "acr_sku" {
   type = string
   default = "Standard"
+}
+
+############################ create a storage account #############################
+variable "account_tier" {
+  type        = string
+}
+
+variable "account_replication_type" {
+  type        = string
 }
 
