@@ -32,6 +32,7 @@ variable "orchestrator_version" {
 
 variable "cluster_sku_tier" {
   type = string
+  default = "paid"
 }
 
 
@@ -43,6 +44,7 @@ variable "default_node_pool_name" {
 
 variable "default_node_pool_vm_size" {
   type = string
+  default = "Standard_D2s_v5"
 }
 
 variable "default_node_pool_min_count" {
@@ -62,6 +64,7 @@ variable "default_node_pool_max_pods" {
 
 variable "default_node_pool_os_disk_size_gb" {
   type = number
+  default = 30
 }
 
 variable "default_node_pool_os_disk_type" {
@@ -87,5 +90,6 @@ variable "acr_name" {
 
 variable "acr_sku" {
   type = string
+  default = "Standard"
 }
 
