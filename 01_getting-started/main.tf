@@ -1,16 +1,15 @@
-# Azure provider source and version
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 3.0"
-    }
-  }
-}
-
-# configure the Azure provider
-provider "azurerm" {
-  features {}
+		# specify provider, provider source and version
+		terraform {
+		  required_providers {
+		    azurerm = {
+		      source  = "hashicorp/azurerm"
+		      version = "~> 3.0"
+		    }
+		  }
+		}
+		# configure the specified provider
+		provider "azurerm" {
+		  features {}
 }
 
 # create a resource group
