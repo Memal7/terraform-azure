@@ -24,7 +24,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   location                          = azurerm_resource_group.rg.location
   resource_group_name               = azurerm_resource_group.rg.name
   dns_prefix                        = var.dns_prefix
-  role_based_access_control_enabled = true
+  role_based_access_control_enabled = var.role_based_access_control_enabled
   kubernetes_version                = var.orchestrator_version
   sku_tier                          = var.cluster_sku_tier
 
@@ -36,7 +36,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   default_node_pool {
     name                 = var.default_node_pool_name
     vm_size              = var.default_node_pool_vm_size
-    enable_auto_scaling  = true
+    enable_auto_scaling  = var.enable_auto_scaling
     min_count            = var.default_node_pool_min_count
     max_count            = var.default_node_pool_max_count
     max_pods             = var.default_node_pool_max_pods

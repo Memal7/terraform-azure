@@ -25,6 +25,11 @@ variable "dns_prefix" {
   type = string
 }
 
+variable "role_based_access_control_enabled" {
+  type    = bool
+  default = true
+}
+
 variable "orchestrator_version" {
   type        = string
   description = "If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)"
@@ -45,6 +50,11 @@ variable "default_node_pool_name" {
 variable "default_node_pool_vm_size" {
   type    = string
   default = "Standard_D2s_v5"
+}
+
+variable "enable_auto_scaling" {
+  type    = bool
+  default = true
 }
 
 variable "default_node_pool_min_count" {
