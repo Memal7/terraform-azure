@@ -1,15 +1,15 @@
-		# specify provider, provider source and version
-		terraform {
-		  required_providers {
-		    azurerm = {
-		      source  = "hashicorp/azurerm"
-		      version = "~> 3.0"
-		    }
-		  }
-		}
-		# configure the specified provider
-		provider "azurerm" {
-		  features {}
+# specify provider, provider source and version
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
+}
+# configure the specified provider
+provider "azurerm" {
+  features {}
 }
 
 # create a resource group
@@ -25,9 +25,9 @@ module "storage" {
   source = "./Modules/Storage_Account"
 
   storage_name   = local.storage_name
-  resource_group    = azurerm_resource_group.rg.name
-  location = var.location
-  https_only = true
+  resource_group = azurerm_resource_group.rg.name
+  location       = var.location
+  https_only     = true
 }
 
 # create a virtual network

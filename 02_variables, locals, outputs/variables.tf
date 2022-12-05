@@ -31,7 +31,7 @@ variable "orchestrator_version" {
 }
 
 variable "cluster_sku_tier" {
-  type = string
+  type    = string
   default = "Paid"
 }
 
@@ -43,7 +43,7 @@ variable "default_node_pool_name" {
 }
 
 variable "default_node_pool_vm_size" {
-  type = string
+  type    = string
   default = "Standard_D2s_v5"
 }
 
@@ -63,7 +63,7 @@ variable "default_node_pool_max_pods" {
 }
 
 variable "default_node_pool_os_disk_size_gb" {
-  type = number
+  type    = number
   default = 30
 }
 
@@ -84,16 +84,16 @@ variable "default_node_pool_availability_zones" {
 
 ############################ create an azure container registry (acr) #############################
 variable "acr_sku" {
-  type = string
+  type    = string
   default = "Standard"
 }
 
 ############################ create a storage account #############################
 variable "account_tier" {
-  type        = string
+  type = string
 }
 
 variable "account_replication_type" {
-  type        = string
+  type = string
 }
 
