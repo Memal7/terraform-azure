@@ -21,7 +21,7 @@ Terraform allows you to write human-readable configuration codes with *Hashicorp
 
 ---
 
-## Terraform workflow
+## Terraform Workflow
 - **configuration files:** Define your resources 
 - **`terraform init`:** Initialize configuration files inside current directory and download the provider plugins from Terraform Registry 
 - **`terraform plan`:** Create an execution plan
