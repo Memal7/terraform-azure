@@ -14,7 +14,7 @@ provider "azurerm" {
 
 # create a resource group
 resource "azurerm_resource_group" "rg" {
-  name     = "rg-terraform"
+  name     = "rg-terraform-intro"
   location = "northeurope"
 }
 
