@@ -1,4 +1,4 @@
-# configure the Azure provider
+# specify provider, provider source and version
 terraform {
   required_providers {
     azurerm = {
@@ -7,7 +7,7 @@ terraform {
     }
   }
 }
-
+# configure the specified provider
 provider "azurerm" {
   features {}
 }
@@ -25,9 +25,9 @@ module "storage" {
   source = "./Modules/Storage_Account"
 
   storage_name   = local.storage_name
-  resource_group    = azurerm_resource_group.rg.name
-  location = var.location
-  https_only = true
+  resource_group = azurerm_resource_group.rg.name
+  location       = var.location
+  https_only     = true
 }
 
 # create a virtual network

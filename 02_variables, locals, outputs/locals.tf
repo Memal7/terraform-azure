@@ -9,6 +9,7 @@ locals {
 
   # create a random string for the name of the storage account
   storage_name = "stgacc${random_integer.random.result}"
+  acr_name     = "acr${random_integer.random.result}"
 }
 
 # create random integer for random name

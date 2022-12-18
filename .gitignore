@@ -8,8 +8,14 @@
 # .terraform.lock.hcl
 .terraform.lock.hcl
 
+# .svg files from graph
+*.svg
+
 # variables values
 *.tfvars
+
+# .tfplan files
+*.tfplan
 
 # storage account infos
 backend-config.txt

@@ -1,4 +1,4 @@
-# configure the Azure provider
+# specify provider, provider source and version
 terraform {
   required_providers {
     azurerm = {
@@ -7,7 +7,7 @@ terraform {
     }
   }
 }
-
+# configure the specified provider
 provider "azurerm" {
   features {}
 }
