@@ -15,7 +15,7 @@
 *.tfvars
 
 # .tfplan files
-*.tfplan
+*tfplan
 
 # storage account infos
 backend-config.txt
