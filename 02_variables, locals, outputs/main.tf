@@ -16,6 +16,8 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group
   location = var.location
+
+  tags = local.tags
 }
 
 # create an aks cluster
@@ -25,7 +27,6 @@ resource "azurerm_kubernetes_cluster" "main" {
   resource_group_name               = azurerm_resource_group.rg.name
   dns_prefix                        = var.dns_prefix
   role_based_access_control_enabled = var.role_based_access_control_enabled
-  kubernetes_version                = var.orchestrator_version
   sku_tier                          = var.cluster_sku_tier
 
   azure_active_directory_role_based_access_control {
@@ -34,23 +35,25 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
 
   default_node_pool {
-    name                 = var.default_node_pool_name
-    vm_size              = var.default_node_pool_vm_size
-    enable_auto_scaling  = var.enable_auto_scaling
-    min_count            = var.default_node_pool_min_count
-    max_count            = var.default_node_pool_max_count
-    max_pods             = var.default_node_pool_max_pods
-    os_disk_size_gb      = var.default_node_pool_os_disk_size_gb
-    os_disk_type         = var.default_node_pool_os_disk_type
-    os_sku               = var.default_node_pool_os_sku
-    orchestrator_version = var.orchestrator_version
-    zones                = var.default_node_pool_availability_zones
+    name                 = var.kubernetes_cluster_default_node_pool.workload.name
+    vm_size              = var.kubernetes_cluster_default_node_pool.workload.vm_size
+    enable_auto_scaling  = var.kubernetes_cluster_default_node_pool.workload.enable_auto_scaling
+    min_count            = var.kubernetes_cluster_default_node_pool.workload.min_count
+    max_count            = var.kubernetes_cluster_default_node_pool.workload.max_count
+    max_pods             = var.kubernetes_cluster_default_node_pool.workload.max_pods
+    os_disk_size_gb      = var.kubernetes_cluster_default_node_pool.workload.os_disk_size_gb
+    os_disk_type         = var.kubernetes_cluster_default_node_pool.workload.os_disk_type
+    os_sku               = var.kubernetes_cluster_default_node_pool.workload.os_sku
+    orchestrator_version = var.kubernetes_cluster_default_node_pool.workload.orchestrator_version
+    zones                = var.kubernetes_cluster_default_node_pool.workload.zones
 
   }
 
   identity {
     type = "SystemAssigned"
   }
+
+  tags = local.tags
 }
 
 # create an azure container registry (acr)
@@ -61,6 +64,8 @@ resource "azurerm_container_registry" "acr" {
   sku                    = var.acr_sku
   admin_enabled          = false
   anonymous_pull_enabled = false
+
+  tags = local.tags
 }
 
 # create a storage account
