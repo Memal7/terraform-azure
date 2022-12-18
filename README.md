@@ -82,7 +82,7 @@ az account set --subscription "<your-subscription-id>"
 ---
 
 ## Quick Start
-Switch to one of the folder in the root directory (e.g. cd 01_intro) and use deploy the defined resources in the `main.tf` using following commands:
+Navigate into one of the sub-directories in the root directory (e.g. cd 01_getting-started) and deploy the defined resources in the `main.tf` using following commands:
 
 Initialize your working directory and install provider plugins:
 ```
