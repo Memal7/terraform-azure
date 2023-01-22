@@ -2,7 +2,7 @@
 This repo demonstrate the usage of Infrastructure as Code (IaC) with Terraform in Azure with some demos.  
 ---
 ## What's IaC?
-IaC is the process of provisioning and managing infrastructure resources through writing and executing code, rather than using manual configuration or GUIs.
+IaC is the process of deploying and managing cloud infrastructures and application lifecycle through writing and executing code, rather than using manual configurations or GUIs (e.g. Azure Portal, AWS Console, etc.).
 
 ## Why do I have to use IaC?
 IaC offers many benefits. Just some of them are:
